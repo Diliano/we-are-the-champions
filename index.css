@@ -1,4 +1,77 @@
+@font-face {
+    src: url("assets/JosefinSans-VariableFont_wght.ttf");
+    font-family: Josefin Sans;
+}
+
+@font-face {
+    src: url("assets/Inter-VariableFont_slnt,wght.ttf");
+    font-family: Inter;
+}
+
 html, body {
     margin: 0;
     padding: 0;
+    background: #1B1924;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px; 
+    margin: 50px auto;
+}
+
+#logo {
+    width: 90px;
+    margin: 0px auto;
+}
+
+#header {
+    color: #FFF;
+    font-family: Josefin Sans;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+    text-align: center;
+}
+
+#input {
+    height: 120px;
+    border: none;
+    border-radius: 8px;
+    background: #444059; 
+    color: #8F8F8F;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    resize: vertical;
+    padding: 15px;
+}
+
+#publish-btn {
+    margin-top: 15px;
+    padding: 15px 0px;
+    border: none;
+    border-radius: 8px;
+    background: #28A9F1; 
+    color: #04131C;
+    text-align: center;
+    font-family: Josefin Sans;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal; 
+}
+
+#endorsements-title {
+    color: #FFF;
+    font-family: Josefin Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+    text-align: center
 }
