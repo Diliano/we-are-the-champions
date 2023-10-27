@@ -11,7 +11,7 @@ const endorsementsInDB = ref(database, "endorsements");
 
 const inputFieldEl = document.getElementById("input-field");
 const publishBtnEl = document.getElementById("publish-btn");
-const endorsementsEl = document.getElementById("endorsements");
+const endorsementsListEl = document.getElementById("endorsements-list");
 
 publishBtnEl.addEventListener("click", function() {
    const inputValue = inputFieldEl.value;
@@ -31,21 +31,22 @@ onValue(endorsementsInDB, function(snapshot) {
    if (snapshot.exists()) {
        const endorsementsValuesArray = Object.values(snapshot.val());
        
-       clearEndorsementsEl();
+       clearEndorsementsListEl();
        
        for (let i = 0; i < endorsementsValuesArray.length; i++) {
            const currentEndorsement = endorsementsValuesArray[i];
            
-           const listEl = document.createElement("li");
-           listEl.textContent = currentEndorsement;
-           endorsementsEl.append(listEl);
+           appendEndorsementToEndorsementsListEl(currentEndorsement);
        }
    } 
 });
 
-function clearEndorsementsEl() {
-    endorsementsEl.innerHTML = "";
+function clearEndorsementsListEl() {
+    endorsementsListEl.innerHTML = "";
 }
 
-
-
+function appendEndorsementToEndorsementsListEl(endorsement) {
+    const listEl = document.createElement("li");
+    listEl.textContent = endorsement;
+    endorsementsListEl.append(listEl);
+}
