@@ -18,5 +18,12 @@ publishBtnEl.addEventListener("click", function() {
    
    if (inputValue !== "") {
        push(endorsementsInDB, inputValue);
+       
+       clearInputFieldEl();
    }
 });
+
+function clearInputFieldEl() {
+    inputFieldEl.value = "";
+}
+
