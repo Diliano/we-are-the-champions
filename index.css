@@ -75,3 +75,23 @@ html, body {
     line-height: normal; 
     text-align: center
 }
+
+#endorsements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.endorsements {
+    background: #FFF;
+    padding: 10px 15px;
+    color: #1B1924;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;   
+}

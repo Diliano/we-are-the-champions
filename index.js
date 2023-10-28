@@ -47,6 +47,7 @@ function clearEndorsementsListEl() {
 
 function appendEndorsementToEndorsementsListEl(endorsement) {
     const listEl = document.createElement("li");
+    listEl.classList.add("endorsements");
     listEl.textContent = endorsement;
     endorsementsListEl.append(listEl);
 }
