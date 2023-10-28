@@ -36,7 +36,7 @@ html, body {
     text-align: center;
 }
 
-#input-field {
+#message-input {
     height: 120px;
     border: none;
     border-radius: 8px;
@@ -51,8 +51,29 @@ html, body {
     padding: 15px;
 }
 
+#from-to-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+} 
+
+input {
+    width: 155px;
+    border: none;
+    border-radius: 8px;
+    background: #444059;
+    padding: 6px 0px;
+    color: #8F8F8F;
+    text-align: center;
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
 #publish-btn {
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 15px 0px;
     border: none;
     border-radius: 8px;

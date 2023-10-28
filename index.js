@@ -9,22 +9,22 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const endorsementsInDB = ref(database, "endorsements");
 
-const inputFieldEl = document.getElementById("input-field");
+const messageInputEl = document.getElementById("message-input");
 const publishBtnEl = document.getElementById("publish-btn");
 const endorsementsListEl = document.getElementById("endorsements-list");
 
 publishBtnEl.addEventListener("click", function() {
-   const inputValue = inputFieldEl.value;
+   const inputValue = messageInputEl.value;
    
    if (inputValue !== "") {
        push(endorsementsInDB, inputValue);
        
-       clearInputFieldEl();
+       clearMessageInputEl()
    }
 });
 
-function clearInputFieldEl() {
-    inputFieldEl.value = "";
+function clearMessageInputEl() {
+    messageInputEl.value = "";
 }
 
 onValue(endorsementsInDB, function(snapshot) {
