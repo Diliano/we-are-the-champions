@@ -108,11 +108,15 @@ input {
 
 .endorsements {
     background: #FFF;
-    padding: 10px 15px;
+    padding: 0px 15px;
     color: #1B1924;
     font-family: Inter;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;   
+    font-weight: 700;
+    line-height: normal;  
+}
+
+.endorsement-message {
+    font-weight: 400; 
 }
