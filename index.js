@@ -10,14 +10,14 @@ const database = getDatabase(app);
 const endorsementsInDB = ref(database, "endorsements");
 
 const messageInputEl = document.getElementById("message-input");
-const fromInputEL = document.getElementById("from-input");
+const fromInputEl = document.getElementById("from-input");
 const toInputEl = document.getElementById("to-input");
 const publishBtnEl = document.getElementById("publish-btn");
 const endorsementsListEl = document.getElementById("endorsements-list");
 
 publishBtnEl.addEventListener("click", function() {
    const messageInputValue = messageInputEl.value;
-   const fromInputValue = fromInputEL.value;
+   const fromInputValue = fromInputEl.value;
    const toInputValue = toInputEl.value;
    
    const totalInput = {
@@ -26,15 +26,25 @@ publishBtnEl.addEventListener("click", function() {
        message: messageInputValue
    };
    
-   if (messageInputValue !== "") {
+   if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
        push(endorsementsInDB, totalInput);
        
-       clearMessageInputEl()
+       clearMessageInputEl();
+       clearFromInputEl();
+       clearToInputEl();
    }
 });
 
 function clearMessageInputEl() {
     messageInputEl.value = "";
+}
+
+function clearFromInputEl() {
+    fromInputEl.value = "";
+}
+
+function clearToInputEl() {
+    toInputEl.value = "";
 }
 
 onValue(endorsementsInDB, function(snapshot) {
