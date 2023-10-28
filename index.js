@@ -49,12 +49,12 @@ function clearToInputEl() {
 
 onValue(endorsementsInDB, function(snapshot) {
    if (snapshot.exists()) {
-       const endorsementsValuesArray = Object.values(snapshot.val());
+       const endorsementsArray = Object.entries(snapshot.val());
        
        clearEndorsementsListEl();
        
-       for (let i = 0; i < endorsementsValuesArray.length; i++) {
-           const currentEndorsement = endorsementsValuesArray[i];
+       for (let i = 0; i < endorsementsArray.length; i++) {
+           const currentEndorsement = endorsementsArray[i][1];
            
            appendEndorsementToEndorsementsListEl(currentEndorsement);
        }
@@ -66,8 +66,25 @@ function clearEndorsementsListEl() {
 }
 
 function appendEndorsementToEndorsementsListEl(endorsement) {
+    const endorsementFrom = endorsement.from;
+    const endorsementTo = endorsement.to;
+    const endorsementMessage = endorsement.message;
+    
     const listEl = document.createElement("li");
+    const fromPEl = document.createElement("p");
+    const toPEl = document.createElement("p");
+    const messagePEl = document.createElement("p");
+    
+    
     listEl.classList.add("endorsements");
-    listEl.textContent = endorsement;
+    
+    toPEl.textContent = `To ${endorsementTo}`;
+    messagePEl.textContent = endorsementMessage;
+    fromPEl.textContent = `From ${endorsementFrom}`;
+    
+    listEl.append(toPEl);
+    listEl.append(messagePEl);
+    listEl.append(fromPEl);
+    
     endorsementsListEl.append(listEl);
 }
