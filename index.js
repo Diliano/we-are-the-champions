@@ -48,9 +48,9 @@ publishBtnEl.addEventListener("click", function() {
    if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
        push(endorsementsInDB, totalInput);
        
-       clearMessageInputEl();
-       clearFromInputEl();
-       clearToInputEl();
+       clearInputField(messageInputEl);
+       clearInputField(fromInputEl);
+       clearInputField(toInputEl);
    }
 });
 
@@ -66,16 +66,8 @@ function checkInputField(inputField, placeholder) {
     }
 }
 
-function clearMessageInputEl() {
-    messageInputEl.value = "";
-}
-
-function clearFromInputEl() {
-    fromInputEl.value = "";
-}
-
-function clearToInputEl() {
-    toInputEl.value = "";
+function clearInputField(inputField) {
+    inputField.value = "";
 }
 
 function clearEndorsementsListEl() {
