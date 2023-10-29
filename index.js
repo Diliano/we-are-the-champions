@@ -26,6 +26,36 @@ publishBtnEl.addEventListener("click", function() {
        message: messageInputValue
    };
    
+   if (messageInputValue === "") {
+       messageInputEl.style.border = "1px solid red";
+       messageInputEl.placeholder = "Required!";
+       
+       setTimeout(function() {
+           messageInputEl.style.border = "none";
+           messageInputEl.placeholder = "Write your endorsement here";
+       }, 1000);
+   }
+   
+   if (fromInputValue === "") {
+       fromInputEl.style.border = "1px solid red";
+       fromInputEl.placeholder = "Required!";
+       
+       setTimeout(function() {
+           fromInputEl.style.border = "none";
+           fromInputEl.placeholder = "From";
+       }, 1000);
+   }
+   
+  if (toInputValue === "") {
+       toInputEl.style.border = "1px solid red";
+       toInputEl.placeholder = "Required!";
+       
+       setTimeout(function() {
+           toInputEl.style.border = "none";
+           toInputEl.placeholder = "To";
+       }, 1000);
+   }
+   
    if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
        push(endorsementsInDB, totalInput);
        
