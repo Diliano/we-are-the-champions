@@ -31,9 +31,9 @@ onValue(endorsementsInDB, function(snapshot) {
 
 publishBtnEl.addEventListener("click", function() {
    
-   checkInputField(messageInputEl, "Write your endorsement here");
-   checkInputField(fromInputEl, "From");
-   checkInputField(toInputEl, "To");
+   checkInputField(messageInputEl, messageInputEl.placeholder);
+   checkInputField(fromInputEl, fromInputEl.placeholder);
+   checkInputField(toInputEl, toInputEl.placeholder);
    
    const messageInputValue = messageInputEl.value;
    const fromInputValue = fromInputEl.value;
