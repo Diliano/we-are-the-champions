@@ -45,7 +45,7 @@ publishBtnEl.addEventListener("click", function() {
        message: messageInputValue
    };
    
-   if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
+   if (messageInputValue.trim() !== "" && fromInputValue.trim() !== "" && toInputValue.trim() !== "") {
        push(endorsementsInDB, totalInput);
        
        clearInputField(messageInputEl);
@@ -55,7 +55,8 @@ publishBtnEl.addEventListener("click", function() {
 });
 
 function checkInputField(inputField, placeholder) {
-    if (inputField.value === "") {
+    if (inputField.value.trim() === "") {
+        clearInputField(inputField);
         inputField.style.border = "1px solid red";
         inputField.placeholder = "Required!";
         
