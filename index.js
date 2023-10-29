@@ -15,68 +15,6 @@ const toInputEl = document.getElementById("to-input");
 const publishBtnEl = document.getElementById("publish-btn");
 const endorsementsListEl = document.getElementById("endorsements-list");
 
-publishBtnEl.addEventListener("click", function() {
-   const messageInputValue = messageInputEl.value;
-   const fromInputValue = fromInputEl.value;
-   const toInputValue = toInputEl.value;
-   
-   const totalInput = {
-       from: fromInputValue,
-       to: toInputValue,
-       message: messageInputValue
-   };
-   
-   if (messageInputValue === "") {
-       messageInputEl.style.border = "1px solid red";
-       messageInputEl.placeholder = "Required!";
-       
-       setTimeout(function() {
-           messageInputEl.style.border = "none";
-           messageInputEl.placeholder = "Write your endorsement here";
-       }, 1000);
-   }
-   
-   if (fromInputValue === "") {
-       fromInputEl.style.border = "1px solid red";
-       fromInputEl.placeholder = "Required!";
-       
-       setTimeout(function() {
-           fromInputEl.style.border = "none";
-           fromInputEl.placeholder = "From";
-       }, 1000);
-   }
-   
-  if (toInputValue === "") {
-       toInputEl.style.border = "1px solid red";
-       toInputEl.placeholder = "Required!";
-       
-       setTimeout(function() {
-           toInputEl.style.border = "none";
-           toInputEl.placeholder = "To";
-       }, 1000);
-   }
-   
-   if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
-       push(endorsementsInDB, totalInput);
-       
-       clearMessageInputEl();
-       clearFromInputEl();
-       clearToInputEl();
-   }
-});
-
-function clearMessageInputEl() {
-    messageInputEl.value = "";
-}
-
-function clearFromInputEl() {
-    fromInputEl.value = "";
-}
-
-function clearToInputEl() {
-    toInputEl.value = "";
-}
-
 onValue(endorsementsInDB, function(snapshot) {
    if (snapshot.exists()) {
        const endorsementsArray = Object.entries(snapshot.val());
@@ -90,6 +28,55 @@ onValue(endorsementsInDB, function(snapshot) {
        }
    } 
 });
+
+publishBtnEl.addEventListener("click", function() {
+   
+   checkInputField(messageInputEl, "Write your endorsement here");
+   checkInputField(fromInputEl, "From");
+   checkInputField(toInputEl, "To");
+   
+   const messageInputValue = messageInputEl.value;
+   const fromInputValue = fromInputEl.value;
+   const toInputValue = toInputEl.value;
+   
+   const totalInput = {
+       from: fromInputValue,
+       to: toInputValue,
+       message: messageInputValue
+   };
+   
+   if (messageInputValue !== "" && fromInputValue !== "" && toInputValue !== "") {
+       push(endorsementsInDB, totalInput);
+       
+       clearMessageInputEl();
+       clearFromInputEl();
+       clearToInputEl();
+   }
+});
+
+function checkInputField(inputField, placeholder) {
+    if (inputField.value === "") {
+        inputField.style.border = "1px solid red";
+        inputField.placeholder = "Required!";
+        
+        setTimeout(function() {
+            inputField.style.border = "none";
+            inputField.placeholder = placeholder;
+        },1000);
+    }
+}
+
+function clearMessageInputEl() {
+    messageInputEl.value = "";
+}
+
+function clearFromInputEl() {
+    fromInputEl.value = "";
+}
+
+function clearToInputEl() {
+    toInputEl.value = "";
+}
 
 function clearEndorsementsListEl() {
     endorsementsListEl.innerHTML = "";
