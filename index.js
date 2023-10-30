@@ -85,7 +85,7 @@ function appendEndorsementToEndorsementsListEl(endorsement) {
     const toPEl = document.createElement("p");
     const messagePEl = document.createElement("p");
     
-    listEl.classList.add("endorsements");
+    listEl.classList.add("endorsement");
     
     toPEl.textContent = `To ${endorsementTo}`;
     
