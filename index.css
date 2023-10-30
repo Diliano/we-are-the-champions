@@ -85,6 +85,11 @@ input {
     font-style: normal;
     font-weight: 700;
     line-height: normal; 
+    cursor: pointer;
+}
+
+#publish-btn:hover {
+    opacity: 0.5;
 }
 
 #endorsements-title {
